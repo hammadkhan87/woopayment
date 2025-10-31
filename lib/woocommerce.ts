@@ -1,6 +1,12 @@
 const WooCommerceRestApi = require('@woocommerce/woocommerce-rest-api').default;
-import { PaymentMethod, OrderData, CreateOrderResponse } from '@//types/woocommerce';
-    
+// import { PaymentMethod, OrderData, CreateOrderResponse } from '@//types/woocommerce';
+     type CartItem ={
+  product_id: number;
+  quantity: number;
+  variation_id?: number;
+  price?: number;
+  name?: string;
+}
 type PaymentMethod ={
   id: string;
   title: string;
@@ -8,6 +14,48 @@ type PaymentMethod ={
   enabled: boolean;
   method_title?: string;
   method_description?: string;
+}
+
+interface OrderData {
+  payment_method: string;
+  payment_method_title: string;
+  set_paid: boolean;
+  billing: {
+    first_name: string;
+    last_name: string;
+    email: string;
+    address_1: string;
+    city: string;
+    state: string;
+    postcode: string;
+    country: string;
+    phone: string;
+  };
+  shipping: {
+    first_name: string;
+    last_name: string;
+    address_1: string;
+    city: string;
+    state: string;
+    postcode: string;
+    country: string;
+  };
+  line_items: CartItem[];
+  shipping_lines: Array<{
+    method_id: string;
+    method_title: string;
+    total: string;
+  }>;
+}
+
+interface CreateOrderResponse {
+  id: number;
+  order_key: string;
+  number: string;
+  status: string;
+  currency: string;
+  total: string;
+  payment_url?: string;
 }
 
 
