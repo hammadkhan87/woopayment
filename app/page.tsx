@@ -93,14 +93,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                     <p className="text-gray-900">{customerInfo.email}</p>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone:</label>
-                    <p className="text-gray-900">{customerInfo.phone}</p>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Shipping Address</label>
-                    <p className="text-gray-900">{customerInfo.shippingAdress}</p>
-                  </div>
+                
                 </div>
 
                 <button

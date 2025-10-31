@@ -7,6 +7,24 @@ const WooCommerceRestApi = require('@woocommerce/woocommerce-rest-api').default;
   price?: number;
   name?: string;
 }
+
+ interface ShippingAddress {
+  id?: string;
+  first_name: string;
+  last_name: string;
+  company?: string;
+  address_1: string;
+  address_2?: string;
+  city: string;
+  state: string;
+  postcode: string;
+  country: string;
+  email?: string;
+  phone?: string;
+  is_default?: boolean;
+  label?: string; // Custom label like "Home", "Work", etc.
+}
+
 type PaymentMethod ={
   id: string;
   title: string;
@@ -20,26 +38,8 @@ interface OrderData {
   payment_method: string;
   payment_method_title: string;
   set_paid: boolean;
-  billing: {
-    first_name: string;
-    last_name: string;
-    email: string;
-    address_1: string;
-    city: string;
-    state: string;
-    postcode: string;
-    country: string;
-    phone: string;
-  };
-  shipping: {
-    first_name: string;
-    last_name: string;
-    address_1: string;
-    city: string;
-    state: string;
-    postcode: string;
-    country: string;
-  };
+  billing:ShippingAddress;
+  shipping:ShippingAddress;
   line_items: CartItem[];
   shipping_lines: Array<{
     method_id: string;
@@ -56,6 +56,8 @@ interface CreateOrderResponse {
   currency: string;
   total: string;
   payment_url?: string;
+    date_created: string;
+  date_modified: string;
 }
 
 
@@ -125,7 +127,9 @@ class WooCommerceService {
         status: response.data.status,
         currency: response.data.currency,
         total: response.data.total,
-        payment_url: response.data.payment_url
+        payment_url: response.data.payment_url,
+        date_created: response.data.date_created,
+        date_modified: response.data.date_modified
       };
       
     } catch (error: any) {
