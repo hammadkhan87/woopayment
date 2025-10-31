@@ -28,7 +28,9 @@ export default function Home() {
   const customerInfo = {
     email: 'customer@example.com',
     firstName: 'John',
-    lastName: 'Doe'
+    lastName: 'Doe',
+    phone:"(555) 123-4567",
+    shippingAdress:"123 Main St"
   };
 
   const handlePaymentSuccess = (orderData: any) => {
@@ -90,6 +92,14 @@ export default function Home() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                     <p className="text-gray-900">{customerInfo.email}</p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone:</label>
+                    <p className="text-gray-900">{customerInfo.phone}</p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Shipping Address</label>
+                    <p className="text-gray-900">{customerInfo.shippingAdress}</p>
                   </div>
                 </div>
 
