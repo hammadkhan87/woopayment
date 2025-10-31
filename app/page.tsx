@@ -2,9 +2,17 @@
 
 import { useState } from 'react';
 import PaymentPopup from '@/components/PaymentPopup';
-import { CartItem } from '@/.next/types/woocommerce';
-
+// import { CartItem } from '@/.next/types/woocommerce';
+   type CartItem ={
+  product_id: number;
+  quantity: number;
+  variation_id?: number;
+  price?: number;
+  name?: string;
+}
 export default function Home() {
+
+
   const [showPayment, setShowPayment] = useState(false);
 
   // Sample cart data

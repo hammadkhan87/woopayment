@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { PaymentMethod, CartItem } from '@/.next/types/woocommerce';
+import { PaymentMethod} from '@/.next/types/woocommerce';
+
+ type CartItem ={
+  product_id: number;
+  quantity: number;
+  variation_id?: number;
+  price?: number;
+  name?: string;
+}
 
 interface PaymentPopupProps {
   isOpen: boolean;
