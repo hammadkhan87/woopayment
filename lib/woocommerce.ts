@@ -1,5 +1,15 @@
 const WooCommerceRestApi = require('@woocommerce/woocommerce-rest-api').default;
-import { PaymentMethod, OrderData, CreateOrderResponse } from '@/.next/types/woocommerce';
+import { PaymentMethod, OrderData, CreateOrderResponse } from '@//types/woocommerce';
+    
+type PaymentMethod ={
+  id: string;
+  title: string;
+  description: string;
+  enabled: boolean;
+  method_title?: string;
+  method_description?: string;
+}
+
 
 class WooCommerceService {
   private api: any;
