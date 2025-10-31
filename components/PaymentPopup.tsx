@@ -1,7 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { PaymentMethod} from '@/.next/types/woocommerce';
+// import { PaymentMethod} from '@/.next/types/woocommerce';
+
+type PaymentMethod ={
+  id: string;
+  title: string;
+  description: string;
+  enabled: boolean;
+  method_title?: string;
+  method_description?: string;
+}
 
  type CartItem ={
   product_id: number;
